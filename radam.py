@@ -12,7 +12,7 @@ class RAdam(Optimizer):
             self._beta2 = K.variable(beta2, dtype="float32")
             self._max_sma_length = 2 / (1 - self._beta2)
             self._iterations = K.variable(0)
-            self._decay = decay
+            self._decay = K.variable(decay)
 
     def get_updates(self, loss, params):
         grads = self.get_gradients(loss, params)
